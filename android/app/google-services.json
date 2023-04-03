@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "393066553567",
+    "project_id": "ssocool-2041d",
+    "storage_bucket": "ssocool-2041d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393066553567:android:4bf2a1bd8a5efc7f36c96a",
+        "android_client_info": {
+          "package_name": "com.example.sso_cool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393066553567-cf1kq21lhs2msngijks20ppg0kh1nd00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBd-STASwy-FkF0FUQTih506lLe_SYy2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393066553567-cf1kq21lhs2msngijks20ppg0kh1nd00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
