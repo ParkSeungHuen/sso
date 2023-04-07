@@ -27,7 +27,6 @@ class MyWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home"),
         centerTitle: true,
-        leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu),),
       ),
 
       body: SizedBox(

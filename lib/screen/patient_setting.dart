@@ -124,6 +124,7 @@ class _Patient_SettingState extends State<Patient_Setting> {
             ),
             trailing: FloatingActionButton(
               // 우측 끝 아이콘
+              shape: Border.symmetric(),
               child: Text('Setting'),
               onPressed: () {
                 Navigator.pushNamed(context, '/Setting_Screen',
