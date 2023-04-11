@@ -11,7 +11,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   //foreground
-  FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(alert: true, badge: true, sound: Resource);
+  FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(alert: true, badge: true, sound: true);
   //백그라운드 핸들러
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 
