@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'bin/user.dart';
-import 'package:sso_cool/screen/bin/service.dart';
+
+import 'package:sso_cool/service/service.dart';
 import 'package:intl/intl.dart';
 import 'package:timer_builder/timer_builder.dart';
+import '../bin/user.dart';
 
 class Setting_Screen extends StatefulWidget {
   const Setting_Screen({
@@ -186,7 +187,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
               ),
 
               SizedBox(
-                height: 10,
+                height: 100
               ),
 
               Container(

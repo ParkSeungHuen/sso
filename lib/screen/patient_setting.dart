@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sso_cool/screen/bin/service.dart';
-import 'package:sso_cool/screen/bin/user.dart';
+import 'package:sso_cool/service/service.dart';
+import 'package:sso_cool/bin/user.dart';
 import 'package:hangul/hangul.dart';
 
 class Patient_Setting extends StatefulWidget {

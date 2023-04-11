@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:sso_cool/screen/bin/user.dart';
+import 'package:sso_cool/bin/user.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Services{
