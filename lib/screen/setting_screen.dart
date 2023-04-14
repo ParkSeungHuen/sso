@@ -205,7 +205,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     final startTime = formatter.format(startT);
                     final endTime = formatter.format(endT);
 
-                    Services.sendDataToServer(startTime, endTime, _Data.id);// 시작시간, 끝시간, 사용자 ID 서버로 전송
+                    Services.sendDataToServer(startTime, endTime, _Data.id, Time);// 시작시간, 끝시간, 사용자 ID 서버로 전송
 
                     // Fluttertoast.showToast(msg: '$startTime');
                     // Fluttertoast.showToast(msg: '$endTime');

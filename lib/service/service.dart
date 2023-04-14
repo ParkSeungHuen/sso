@@ -25,12 +25,13 @@ class Services{
 
   }
 
-  static Future<void> sendDataToServer(String startTime, String endTime, int Id) async {
+  static Future<void> sendDataToServer(String startTime, String endTime, int Id, int rehablilityTime) async {
     final url = Uri.parse('https://fdzzz.free.beeceptor.com'); // 데이터를 보낼 서버 URL
     final data = {
       'startTime': '$startTime',
       'endTime': '$endTime',
-      'memberId': '$Id'
+      'memberId': '$Id',
+      'rehabliltyTime':'$rehablilityTime'
     }; // 전송할 데이터
 
     final response = await http.post(url, body: data);// POST 요청 생성

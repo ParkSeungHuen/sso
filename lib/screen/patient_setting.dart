@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sso_cool/service/service.dart';
 import 'package:sso_cool/bin/user.dart';
-import 'package:hangul/hangul.dart';
 
 class Patient_Setting extends StatefulWidget {
   @override
