@@ -130,7 +130,7 @@ class _Patient_SettingState extends State<Patient_Setting> {
                     arguments: _filteredItems[index]);
               },
             ),
-            title: Text("${user.name}\n${user.email}"),
+            title: Text("${user.name}\n${user.birth}"),
           );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),

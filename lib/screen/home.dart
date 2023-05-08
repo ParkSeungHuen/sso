@@ -34,9 +34,16 @@ class MyWidget extends StatelessWidget {
         height: 350,
         child: Column(
           children: [
-            Image(
-              image: AssetImage('assets/silverfox.png'),
-              fit: BoxFit.cover,
+            // Image(
+            //   image: AssetImage('assets/silverfox.png'),
+            //   fit: BoxFit.fill,
+            // ),
+            ColorFiltered(
+                colorFilter: ColorFilter.mode(Colors.transparent, BlendMode.color),
+              child: Image(
+                image: AssetImage('assets/silverfox.png'),
+                fit: BoxFit.fill,
+              ),
             )
           ],
         )

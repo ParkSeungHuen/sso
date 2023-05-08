@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-
+import 'dart:io';
 import 'package:sso_cool/service/service.dart';
 import 'package:intl/intl.dart';
 import 'package:timer_builder/timer_builder.dart';
@@ -33,6 +33,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
   ];
   String? _selectedValue;
   int Time = 0;
+  int rehabliltyId = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +88,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     child: Text("나이", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                     width: 100,
                   ),
-                  Text(_Data.username),
+                  Text('${_Data.age}'),
                 ],
               ),
               SizedBox(
@@ -99,7 +100,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     child: Text("성별", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                     width: 100,
                   ),
-                  Text(_Data.phone),
+                  Text(_Data.gender),
                 ],
               ),
               SizedBox(
@@ -111,7 +112,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     child: Text("생년월일", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                     width: 100,
                   ),
-                  Text(_Data.phone),
+                  Text('${_Data.birth}'),
                 ],
               ),
               SizedBox(
@@ -123,7 +124,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     child: Text("키", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                     width: 100,
                   ),
-                  Text(_Data.website),
+                  Text('${_Data.height}'),
                 ],
               ),
               SizedBox(
@@ -135,7 +136,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     child: Text("몸무게", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                     width: 100,
                   ),
-                  Text(_Data.email),
+                  Text('${_Data.weight}'),
                 ],
               ),
               SizedBox(
@@ -205,7 +206,26 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     final startTime = formatter.format(startT);
                     final endTime = formatter.format(endT);
 
-                    Services.sendDataToServer(startTime, endTime, _Data.id, Time);// 시작시간, 끝시간, 사용자 ID 서버로 전송
+                    Services.sendDataToServer(_Data.id, Time).then((value) {// 시작시간, 끝시간, 사용자 ID 서버로 전송
+                      setState(() {
+                        rehabliltyId = value as int;
+                        Fluttertoast.showToast(msg: '$rehabliltyId');
+                      });
+                    });
+
+                    // Services.sendDataToServer(_Data.id, Time);// 시작시간, 끝시간, 사용자 ID 서버로 전송
+                    // //추가한 거 : 소켓 프로그래밍(관리자 스마트폰 -> 보행보조차) -->
+                    // Socket.connect('127.0.0.1', 50538).then((socket) { // 실제 라즈베리파이의 주소를 작성해야 하는지등 알아보기 최악의 경우 고정IP설정까지.
+                    //   // 상식이가 해야할 거 : post를 하면 재활 Id 를 스마트폰 앱에 json형태로 돌려주는 것
+                    //   // + 라즈베리파이에서 생체정보 저장 장치에 데이터 전송할 때 받을 수 있게
+                    //   print('서버와 연결되었습니다.');
+                    //   socket.write(' ${Time}, ${_Data.id}'); // 보내야 할 데이터 : 환자 ID랑 재활 시간
+                    //
+                    //   socket.close();
+                    // }).catchError((e) {
+                    //   print('${e}');
+                    // });
+                    // // <--
 
                     // Fluttertoast.showToast(msg: '$startTime');
                     // Fluttertoast.showToast(msg: '$endTime');
