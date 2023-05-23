@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sso_cool/service/service.dart';
-import 'package:sso_cool/bin/user.dart';
+import 'package:sso_cool/repsitory/info_repository.dart';
+import 'package:sso_cool/model/user.dart';
 
 class Patient_Setting extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _Patient_SettingState extends State<Patient_Setting> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(loading ? 'PatientList' : 'Loading...'),
+          title: Text(loading ? '환자 리스트' : '환자 정보 받아오는 중...'),
           centerTitle: true,
           actions: [
             IconButton(
@@ -130,7 +130,8 @@ class _Patient_SettingState extends State<Patient_Setting> {
                     arguments: _filteredItems[index]);
               },
             ),
-            title: Text("${user.name}\n${user.birth}"),
+            title: Text("${user.name}"),
+            subtitle: Text("${user.birth}"),
           );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),

@@ -1,11 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'dart:io';
-import 'package:sso_cool/service/service.dart';
+import 'package:sso_cool/data/rehability_id_send_data.dart';
 import 'package:intl/intl.dart';
-import 'package:timer_builder/timer_builder.dart';
-import '../bin/user.dart';
+import '../model/user.dart';
 
 class Setting_Screen extends StatefulWidget {
   const Setting_Screen({
@@ -33,7 +33,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
   ];
   String? _selectedValue;
   int Time = 0;
-  int rehabliltyId = 0;
+  int rehabilityId = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Setting Screen"),
+          title: Text("재활 시간 설정"),
           centerTitle: true,
           leading: IconButton(
             onPressed: () {
@@ -206,26 +206,14 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     final startTime = formatter.format(startT);
                     final endTime = formatter.format(endT);
 
-                    Services.sendDataToServer(_Data.id, Time).then((value) {// 시작시간, 끝시간, 사용자 ID 서버로 전송
+                    RehabilityIdSendData.sendDataToServer(_Data.id, Time).then((value) {// 시작시간, 끝시간, 사용자 ID 서버로 전송
                       setState(() {
-                        rehabliltyId = value as int;
-                        Fluttertoast.showToast(msg: '$rehabliltyId');
+                        rehabilityId = value as int;
+                        Fluttertoast.showToast(msg: '$rehabilityId');
+
+                        RehabilityIdSendData.sendDataToCar(rehabilityId, Time); // 보행보조차로 소켓통신 전송하는 코드
                       });
                     });
-
-                    // Services.sendDataToServer(_Data.id, Time);// 시작시간, 끝시간, 사용자 ID 서버로 전송
-                    // //추가한 거 : 소켓 프로그래밍(관리자 스마트폰 -> 보행보조차) -->
-                    // Socket.connect('127.0.0.1', 50538).then((socket) { // 실제 라즈베리파이의 주소를 작성해야 하는지등 알아보기 최악의 경우 고정IP설정까지.
-                    //   // 상식이가 해야할 거 : post를 하면 재활 Id 를 스마트폰 앱에 json형태로 돌려주는 것
-                    //   // + 라즈베리파이에서 생체정보 저장 장치에 데이터 전송할 때 받을 수 있게
-                    //   print('서버와 연결되었습니다.');
-                    //   socket.write(' ${Time}, ${_Data.id}'); // 보내야 할 데이터 : 환자 ID랑 재활 시간
-                    //
-                    //   socket.close();
-                    // }).catchError((e) {
-                    //   print('${e}');
-                    // });
-                    // // <--
 
                     // Fluttertoast.showToast(msg: '$startTime');
                     // Fluttertoast.showToast(msg: '$endTime');
