@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "393066553567",
-    "project_id": "ssocool-2041d",
-    "storage_bucket": "ssocool-2041d.appspot.com"
+    "project_number": "660036176078",
+    "project_id": "sso-cool",
+    "storage_bucket": "sso-cool.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:393066553567:android:4bf2a1bd8a5efc7f36c96a",
+        "mobilesdk_app_id": "1:660036176078:android:0dc6fb24a76d9f24a6e89f",
         "android_client_info": {
           "package_name": "com.example.sso_cool"
         }
       },
       "oauth_client": [
         {
-          "client_id": "393066553567-cf1kq21lhs2msngijks20ppg0kh1nd00.apps.googleusercontent.com",
+          "client_id": "660036176078-me71fc2na1jkdnlml8b6apg9o38ltbcc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBBd-STASwy-FkF0FUQTih506lLe_SYy2s"
+          "current_key": "AIzaSyAnggV1WqoaJi2OOy5cWt3c6lKIcJx6qgc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "393066553567-cf1kq21lhs2msngijks20ppg0kh1nd00.apps.googleusercontent.com",
+              "client_id": "660036176078-me71fc2na1jkdnlml8b6apg9o38ltbcc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
