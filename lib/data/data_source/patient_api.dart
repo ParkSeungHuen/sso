@@ -8,11 +8,11 @@ class PatientApi {
 
   final http.Client client;
   PatientApi(this.client);
-  static const patietUrl = '${ApiResource.ip}';
+  static const patientUrl = '${ApiResource.ip}';
 
   Future<Result<List<dynamic>>> fetch() async { // 구현완
     try {
-      final response = await client.get(Uri.parse('$patietUrl/api/patients')); // 사람들의 리스트를 불러오기
+      final response = await client.get(Uri.parse('$patientUrl/api/patients')); // 사람들의 리스트를 불러오기
       List<dynamic> jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
       return Result.success(jsonResponse);
     } catch (e) {
@@ -28,7 +28,7 @@ class PatientApi {
       });
 
       final response = await http.post(
-          Uri.parse('$patietUrl/rehabilitations'),
+          Uri.parse('$patientUrl/rehabilitations'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },

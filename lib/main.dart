@@ -6,6 +6,7 @@ import 'package:sso_cool/screen/patient_list/patient_list.dart';
 import 'package:sso_cool/screen/patient_setting/patient_setting.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sso_cool/screen/setting_car/setting_car.dart';
 
 import 'di/provider_setup.dart';
 
@@ -15,19 +16,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(); // 토큰 얻기
   print(await getDeviceToken());
-  //foreground
-  // FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(alert: true, badge: true, sound: true);
   //백그라운드 핸들러
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-  // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //   print('Got a message whlist in the foreground !');
-  //   print('Message data : ${message.data}');
-  //
-  //   if (message.notification != null) {
-  //     print('Message also containes a notification: ${message.notification}');
-  //   }
-  // });
 
   runApp(
     MultiProvider(
@@ -69,6 +59,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/patient_list' : (context) => PatientList(),
         '/patient_setting' : (context) => PatientSetting(),
+        '/setting_car' : (context) => SettingCar(),
       },
       title: "My App",
 
